@@ -1,4 +1,4 @@
-# Container Composition
+# Container composition with `docker-compose`
 
 We used only single containers so far. But most web applications require for example a frontend, a backend, and a database. And they also need some configuration. This can make docker commands very long and unhandy. This is what `docker-compose` is for. You can specify multiple services and their configuration in a file and then start containers with a single command: `docker-compose up`
 
