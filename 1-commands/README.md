@@ -42,9 +42,19 @@ Now you can `curl localhost:8080` to see the nginx welcome site.
 
 But you don't want to show a default page to the world. Let's configure the nginx to serve our `index.html`.
 
-`$ docker run -d -v $(pwd):/usr/share/nginx/html -p 8080:80 nginx`
+`$ docker run -v $(pwd):/usr/share/nginx/html -p 8080:80 nginx`
 
 `-v` lets you mount a directory from you local machine into the container. Nginx loads static content by default from `/usr/share/nginx/html`, therefore we use that path as destination for our website.
+
+When you see an error like the following one, you have to stop the container using port 8080 before you can start another one:
+
+`Bind for 0.0.0.0:8080 failed: port is already allocated.`
+
+Stop the container like this:
+
+`$ docker stop <containerId>`
+
+Then you can start the container mounting our `index.html` and open a browser on http://localhost:8080.
 
 ### Clean up
 
