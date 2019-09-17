@@ -20,7 +20,7 @@ Let's start a container:
 
 `$ docker run -d nginx`
 
-`-d` starts the container in the background
+`-d` starts containers in the background (detached).
 
 To see all running containers execute:
 
@@ -30,8 +30,26 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 7401b15512dd        nginx               "nginx -g 'daemon of…"   3 seconds ago       Up 1 second         80/tcp              funny_hopper
 ```
 
+### Portforward
+
 You can see that the nginx is running and it is listening on Port 80, but `curl localhost:80` won't work. You have to forward the containers port in order to access it locally.
 
 `$ docker run -d -p 8080:80 nginx`
 
 Now you can `curl localhost:8080` to see the nginx welcome site.
+
+### Mount
+
+But you don't want to show a default page to the world. Let's configure the nginx to serve our `index.html`.
+
+`$ docker run -d -v $(pwd):/usr/share/nginx/html -p 8080:80 nginx`
+
+`-v` lets you mount a directory from you local machine into the container. Nginx loads static content by default from `/usr/share/nginx/html`, therefore we use that path as destination for our website.
+
+### Clean up
+
+The running containers can be stopped and removed if wanted:
+
+`$ docker stop <CONTAINER ID>`
+
+`$ docker rm <CONTAINER ID>`
