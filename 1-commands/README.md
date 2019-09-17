@@ -44,7 +44,7 @@ But you don't want to show a default page to the world. Let's configure the ngin
 
 `$ docker run -v $(pwd):/usr/share/nginx/html -p 8080:80 nginx`
 
-`-v` lets you mount a directory from you local machine into the container. Nginx loads static content by default from `/usr/share/nginx/html`, therefore we use that path as destination for our website.
+`-v` lets you mount a directory from your local machine into the container. Nginx loads static content by default from `/usr/share/nginx/html`, therefore we use that path as destination for our website.
 
 When you see an error like the following one, you have to stop the container using port 8080 before you can start another one:
 

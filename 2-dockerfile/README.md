@@ -30,4 +30,6 @@ You can publish your image now:
 
 `$ docker push 1337docker101/website:<your-name>`
 
+## Run your image on someone else's computer
+
 Now use the laptop of your pairing partner and execute the docker run command from above. You will download your created image and start a container. You shipped your website to someone else's computer! Great success ;-)
